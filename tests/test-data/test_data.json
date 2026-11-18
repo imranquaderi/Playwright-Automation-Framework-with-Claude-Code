@@ -1,0 +1,417 @@
+{
+  "users": {
+    "validUser": {
+      "usernamePrefix": "user",
+      "password": "Test@12345",
+      "initialBalance": 5000
+    }
+  },
+  "routes": {
+    "home": "/",
+    "register": "/register",
+    "login": "/login",
+    "checkout": "/checkout",
+    "thanks": "/thanks",
+    "addressesApi": "/user/addresses"
+  },
+  "products": {
+    "sofa": {
+      "name": "Stylecon 9 Seater RHS Sofa Set",
+      "price": 650
+    },
+    "book": {
+      "name": "Thinking, Fast and Slow",
+      "price": 15
+    },
+    "racquet": {
+      "name": "YONEX Smash Badminton Racquet"
+    },
+    "roadster": {
+      "name": "Roadster Mens Running Shoes",
+      "price": 30
+    },
+    "nike": {
+      "name": "Nike Mens Running Shoes"
+    },
+    "jenga": {
+      "name": "Jenga"
+    },
+    "penDrive": {
+      "name": "Pen Drive"
+    },
+    "wallet": {
+      "name": "Wallet"
+    }
+  },
+  "productListing": {
+    "page1Count": 12,
+    "page2Products": [
+      "Pen Drive",
+      "HandBag",
+      "Saree",
+      "SuitCase",
+      "Solar Plane",
+      "Sticker",
+      "Router",
+      "Wood Stand",
+      "Wallet"
+    ]
+  },
+  "cart": {
+    "standardCartTotal": "$695"
+  },
+  "addresses": {
+    "valid": "12345 Test Street, Springfield, Testland 560001"
+  },
+  "labels": {
+    "registerHeading": "register",
+    "registerButton": "register now",
+    "loginButton": "login to qkart",
+    "headerLoginButton": "login",
+    "logoutButton": "logout",
+    "loginLink": "login here",
+    "alreadyHaveAccount": "already have an account?",
+    "backToExplore": "back to explore",
+    "addToCart": "add to cart",
+    "checkout": "checkout",
+    "orderTotal": "order total",
+    "shippingHeading": "Shipping",
+    "addNewAddress": "add new address",
+    "addAddressButton": "add",
+    "addressPlaceholder": "Enter your complete address",
+    "placeOrder": "place order",
+    "continueShopping": "continue shopping",
+    "delete": "delete",
+    "goToPage2": "Go to page 2",
+    "logoAlt": "QKart-icon",
+    "searchPlaceholder": "Search for items/categories",
+    "contactUs": "Contact us",
+    "goToPage": "Go to page {page}",
+    "cancelButton": "cancel",
+    "paymentHeading": "Payment",
+    "orderDetailsHeading": "Order Details",
+    "orderDetailsProductsRow": "Products",
+    "orderDetailsSubtotalRow": "Subtotal",
+    "orderDetailsShippingRow": "Shipping Charges",
+    "orderDetailsTotalRow": "Total",
+    "cartItemQty": "Qty: {qty}",
+    "loginHeading": "login",
+    "priceFormat": "${amount}",
+    "sizeChart": "size chart",
+    "ratingStars": "star",
+    "paginationNav": "pagination navigation",
+    "pagination": "pagination",
+    "currentPage1": "page 1",
+    "goToPreviousPage": "Go to previous page",
+    "goToNextPage": "Go to next page",
+    "walletBalance": "wallet balance",
+    "headerRegisterButton": "register"
+  },
+  "messages": {
+    "passwordHint": "password must be atleast 6 characters length",
+    "registeredSuccessfully": "registered successfully",
+    "loggedInSuccessfully": "logged in successfully",
+    "usernameRequired": "username is a required field",
+    "passwordRequired": "password is a required field",
+    "usernameDoesNotExist": "username does not exist",
+    "passwordIncorrect": "password is incorrect",
+    "usernameAlreadyExists": "username already exists",
+    "passwordsDoNotMatch": "passwords do not match",
+    "noProductsFound": "no products found",
+    "emptyCart": "cart is empty. add more items to the cart to checkout.",
+    "itemAlreadyInCart": "item already in cart. use the cart sidebar to update quantity or remove item.",
+    "loginToAddToCart": "login to add an item to the cart",
+    "mustBeLoggedInForCheckout": "you must be logged in to access checkout page",
+    "noAddresses": "no addresses found for this account. please add one to proceed",
+    "addressTooShort": "address should be greater than 20 characters",
+    "selectShippingAddress": "please select one shipping address to proceed.",
+    "insufficientBalance": "you do not have enough balance in your wallet for this purchase",
+    "orderPlacedSuccessfully": "order placed successfully",
+    "paymentSummary": "pay $ {total} of available $ {balance}",
+    "addressTooLong": "address should be less than 128 characters",
+    "cartIsEmpty": "cart is empty",
+    "passwordTooShort": "password must be at least 6 characters",
+    "usernameTooShort": "username must be at least 6 characters",
+    "orderedHeadingPattern": "yay! it.s ordered",
+    "invoiceShortly": "you will receive an invoice for your order shortly.",
+    "orderArrival": "your order will arrive in 7 business days.",
+    "balanceAvailablePattern": "\\${balance}\\s*available"
+  },
+  "suites": {
+    "access": {
+      "badToken": {
+        "tamperedToken": "garbage",
+        "networkErrorPattern": "XMLHttpRequest|access control checks|Network Error"
+      },
+      "guestBrowse": {
+        "searchTerm": "shoes",
+        "expectedSearchResultCount": 2
+      }
+    },
+    "header": {
+      "footer": {
+        "links": [
+          {
+            "name": "privacy policy",
+            "path": "/privacy-policy",
+            "minChars": 10000
+          },
+          {
+            "name": "about us",
+            "path": "/aboutus",
+            "minChars": 500
+          },
+          {
+            "name": "terms of service",
+            "path": "/terms-of-service",
+            "minChars": 5000
+          }
+        ]
+      }
+    },
+    "cart": {
+      "add": {
+        "cartEmptyText": "cart is empty",
+        "itemAlreadyInCartText": "item already in cart",
+        "expectedRowCount": 1,
+        "expectedQty": 1,
+        "unitPrice": "$650",
+        "expectedTotal": "$650"
+      },
+      "addDuplicate": {
+        "expectedQty": 1,
+        "expectedTotal": "$650"
+      },
+      "increase": {
+        "expectedQty": 2,
+        "unitPrice": "$650",
+        "expectedTotal": "$1300"
+      },
+      "decrease": {
+        "increasedQty": 2,
+        "decreasedQty": 1,
+        "expectedTotal": "$650"
+      },
+      "multi": {
+        "expectedRowCount": 3
+      },
+      "persist": {
+        "bookQty": 2,
+        "expectedRowCount": 2,
+        "expectedTotal": "$680"
+      },
+      "largeQty": {
+        "targetQty": 22,
+        "expectedTotal": "$330",
+        "errorToastPattern": "max|limit|error"
+      },
+      "size": {
+        "shoeSize": "8",
+        "sizeText": "size",
+        "roadsterPrice": "$30",
+        "roadsterTotal": "$30",
+        "expectedRowCount": 2,
+        "twoShoesTotal": "$110"
+      },
+      "page2": {
+        "pageNumber": 2,
+        "expectedRowCount": 2,
+        "penDrivePrice": "$55",
+        "expectedTotal": "$70"
+      },
+      "rapidClick": {
+        "expectedQty": 3,
+        "expectedTotal": "$45"
+      }
+    },
+    "checkout": {
+      "layout": {
+        "cartProducts": [
+          "sofa",
+          "book",
+          "roadster"
+        ],
+        "itemQty": 1,
+        "paymentTotal": 695,
+        "productsCount": "3",
+        "subtotal": "$695",
+        "shippingCharges": "$0",
+        "total": "$695"
+      },
+      "addressBoundary": {
+        "address": "12345678901234567890",
+        "expectedCount": 1
+      },
+      "addressValidation": {
+        "invalidAddresses": [
+          {
+            "label": "empty",
+            "value": ""
+          },
+          {
+            "label": "3 chars",
+            "value": "abc"
+          },
+          {
+            "label": "19 chars",
+            "value": "1234567890123456789"
+          }
+        ]
+      },
+      "addressLong": {
+        "longAddressPrefix": "221B Baker Street London ",
+        "longAddressFiller": "A",
+        "tooLongLength": 300,
+        "longLength": 120,
+        "htmlAddress": "<img src=x onerror=\"window.__xss=1\"> Straße 東京 #42, 560001",
+        "htmlAddressFragment": "Straße 東京",
+        "htmlRenderedText": "<img src=x"
+      },
+      "selectAddress": {
+        "firstAddress": "12345 First Street, Springfield, Testland 560001",
+        "secondAddress": "67890 Second Avenue, Shelbyville, Testland 560002"
+      },
+      "deleteAddress": {
+        "firstAddress": "12345 First Street, Springfield, Testland 560001",
+        "secondAddress": "67890 Second Avenue, Shelbyville, Testland 560002",
+        "remainingCount": 1
+      },
+      "emptyCart": {
+        "emptyTotal": 0
+      },
+      "wallet": {
+        "cartTotalTemplate": "${total}",
+        "scenarios": [
+          {
+            "add": "book",
+            "total": 15
+          },
+          {
+            "qtyProduct": "book",
+            "qty": 3,
+            "total": 45
+          },
+          {
+            "add": "sofa",
+            "total": 695
+          }
+        ]
+      }
+    },
+    "login": {
+      "loginCase": {
+        "trailingWhitespace": " "
+      }
+    },
+    "registration": {
+      "registerBoundary": {
+        "usernameLength": 6,
+        "password": "Ab@123"
+      },
+      "registerMisc": {
+        "usernameTemplate": "  us#r!{suffix}  ",
+        "headingPattern": "login|register"
+      },
+      "registerMismatch": {
+        "mismatchedConfirmPassword": "Other@12345"
+      },
+      "registerShortPassword": {
+        "password": "12345"
+      },
+      "registerShortUsername": {
+        "username": "abc"
+      }
+    },
+    "root": {
+      "login": {
+        "wrongPassword": "WrongPass@1"
+      }
+    },
+    "order": {
+      "balancePersist": {
+        "balanceAfterOrder": "4305"
+      },
+      "doubleSubmit": {
+        "balanceAfterOrder": "4305"
+      },
+      "exactBalance": {
+        "sofaQty": 7,
+        "racquetQty": 3,
+        "cartTotal": "$5000",
+        "orderTotal": 5000,
+        "walletBalance": 5000,
+        "balanceAfterOrder": "0"
+      },
+      "insufficient": {
+        "sofaQty": 8,
+        "cartTotal": "$5200",
+        "orderTotal": 5200,
+        "walletBalance": 5000,
+        "balanceAfterFailure": "5000",
+        "retainedQty": "8"
+      },
+      "placeOrder": {
+        "balanceAfterOrder": "4305"
+      },
+      "secondOrder": {
+        "sofaQty": 7,
+        "cartTotal": "$4550",
+        "orderTotal": 4550,
+        "walletBalance": 4305,
+        "balanceAfterFailure": "4305"
+      },
+      "thanks": {
+        "balanceAfterOrder": 4305
+      }
+    },
+    "products": {
+      "listing": {
+        "heroHeadingLine1": "fastest delivery",
+        "heroHeadingLine2": "to your door step",
+        "pricePattern": "^\\$\\d+$",
+        "defaultShoeSize": "6",
+        "shoeSizes": [
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      "notFound": {
+        "unknownRoute": "/nonexistent"
+      },
+      "search": {
+        "term": "shoes",
+        "expectedCount": 2
+      },
+      "searchCase": {
+        "terms": [
+          "SHOES",
+          "shoes",
+          "ShOeS"
+        ],
+        "expectedCount": 2
+      },
+      "searchCategory": {
+        "term": "Furniture"
+      },
+      "searchClear": {
+        "term": "shoes",
+        "expectedCount": 2,
+        "clearedTerm": ""
+      },
+      "searchNone": {
+        "term": "xyzzy"
+      },
+      "searchPage2": {
+        "term": "wallet",
+        "expectedCount": 1,
+        "specialCharacterTerms": [
+          "<script>",
+          "%"
+        ]
+      }
+    }
+  }
+}
