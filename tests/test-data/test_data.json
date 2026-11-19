@@ -413,5 +413,164 @@
         ]
       }
     }
+  },
+  "api": {
+    "paths": {
+      "register": "auth/register",
+      "login": "auth/login",
+      "cart": "cart",
+      "products": "products",
+      "productSearch": "products/search",
+      "addresses": "user/addresses",
+      "checkout": "cart/checkout"
+    },
+    "tokenPattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$",
+    "malformedJsonBody": "{\"username\":",
+    "messages": {
+      "usernameAlreadyExists": "Username already exists",
+      "passwordIncorrect": "Password is incorrect",
+      "usernameDoesNotExist": "Username does not exist",
+      "bearerTokenNotFound": "Protected route, Oauth2 Bearer token not found",
+      "badOrExpiredToken": "Bad or expired token",
+      "productDoesNotExist": "Product doesn't exist",
+      "addressTooShort": "Address should be greater than 20 characters",
+      "addressTooLong": "Address should be less than 128 characters",
+      "addressToDeleteNotFound": "Address to delete was not found",
+      "cartIsEmpty": "Cart is empty",
+      "addressNotSet": "Address not set",
+      "badAddress": "Bad address specified",
+      "insufficientBalance": "Wallet balance not sufficient to place order"
+    },
+    "addresses": {
+      "second": "67890 Second Avenue, Shelbyville, Testland 560002",
+      "filler": "A",
+      "unknownId": "doesNotExist123",
+      "validLengths": [
+        { "label": "the 20-character minimum", "length": 20 },
+        { "label": "the 128-character maximum", "length": 128 }
+      ],
+      "invalidLengths": [
+        { "label": "an empty address", "length": 0, "message": "addressTooShort" },
+        { "label": "a 19-character address", "length": 19, "message": "addressTooShort" },
+        { "label": "a 129-character address", "length": 129, "message": "addressTooLong" }
+      ],
+      "malformedBodies": [
+        { "label": "a missing address field", "body": {}, "observed": "500 Internal Server Error (HTML)" },
+        { "label": "a whitespace-only address", "body": { "address": "                         " }, "observed": "200, stored as-is" },
+        { "label": "a non-string address", "body": { "address": 123456789012345678901234 }, "observed": "200, stored as the number 1.2345678901234569e+23" }
+      ]
+    },
+    "checkout": {
+      "products": {
+        "sofa": { "productId": "34sLtEcMpzabRy", "cost": 650 },
+        "book": { "productId": "34sLtEcMpzabRyfx", "cost": 15 },
+        "roadster": { "productId": "3W0jAAeDJmlZCF8", "cost": 30 },
+        "racquet": { "productId": "3CRwjF7lN97HnEa", "cost": 100 }
+      },
+      "orders": [
+        { "label": "two products", "items": [{ "product": "book", "qty": 2 }, { "product": "roadster", "qty": 1 }], "total": 60 },
+        { "label": "a cart costing exactly the whole balance", "items": [{ "product": "sofa", "qty": 7 }, { "product": "racquet", "qty": 3 }, { "product": "roadster", "qty": 5 }], "total": 5000 }
+      ],
+      "insufficient": { "items": [{ "product": "sofa", "qty": 8 }], "total": 5200 },
+      "sequentialOrders": [
+        { "items": [{ "product": "roadster", "qty": 1 }], "total": 30 },
+        { "items": [{ "product": "book", "qty": 2 }, { "product": "racquet", "qty": 1 }], "total": 130 }
+      ],
+      "stockCheck": { "product": "roadster", "qty": 1 },
+      "doubleSubmit": { "items": [{ "product": "sofa", "qty": 1 }], "total": 650 },
+      "negativeQty": [
+        { "label": "only a negative line", "items": [{ "product": "book", "qty": -10 }], "observedBalance": 5150 },
+        { "label": "a negative line next to a positive one", "items": [{ "product": "roadster", "qty": 1 }, { "product": "book", "qty": -1 }], "observedBalance": 4985 }
+      ],
+      "badAddressIds": [
+        { "label": "a missing addressId", "status": 400, "message": "addressNotSet" },
+        { "label": "an unknown addressId", "addressId": "doesNotExist123", "status": 404, "message": "badAddress" }
+      ]
+    },
+    "nike": {
+      "category": "Fashion",
+      "cost": 80,
+      "sizes": [6, 7, 8, 9, 10],
+      "noBearerCases": [
+        { "label": "no Authorization header", "sendRawToken": false },
+        { "label": "a token without the Bearer prefix", "sendRawToken": true }
+      ]
+    },
+    "cart": {
+      "products": {
+        "book": { "productId": "34sLtEcMpzabRyfx", "qty": 1 },
+        "roadster": { "productId": "3W0jAAeDJmlZCF8", "qty": 2 }
+      },
+      "updatedQty": 3,
+      "outOfStockProductId": "3W0jAAeDJmlZCF8i",
+      "beyondStockQty": 1000,
+      "isolationQty": 5,
+      "malformedTokens": [
+        { "label": "a non-JWT string", "token": "garbage" },
+        { "label": "a JWT with a tampered signature", "tamperSignature": true }
+      ],
+      "tamperedSignature": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "invalidProducts": [
+        { "label": "an unknown productId", "productId": "doesNotExist123" },
+        { "label": "a missing productId" }
+      ],
+      "invalidQuantities": [
+        { "label": "a negative qty", "qty": -1 },
+        { "label": "a non-numeric qty", "qty": "abc" },
+        { "label": "a missing qty" }
+      ]
+    },
+    "products": {
+      "known": ["book", "roadster"],
+      "ignoredPagination": { "page": 2, "limit": 5 },
+      "badIds": [
+        { "label": "an unknown id", "id": "doesNotExist123" },
+        { "label": "a malformed id with special characters", "id": "%'<>" }
+      ],
+      "search": {
+        "nameTerms": [
+          { "label": "a whole word", "term": "shoes", "expected": ["roadster", "nike"] },
+          { "label": "a partial word", "term": "Wal", "expected": ["wallet"] }
+        ],
+        "categoryTerms": ["Books", "Fashion"],
+        "caseVariants": [
+          { "term": "shoes", "variants": ["SHOES", "ShOeS"] },
+          { "term": "fashion", "variants": ["FASHION", "fAsHiOn"] }
+        ],
+        "noResultTerm": "xyzzy",
+        "specialCharacterTerms": [
+          { "label": "a percent sign", "term": "%" },
+          { "label": "a single quote", "term": "'", "defect": "quotes are stripped, so the search is empty -> 200 with the whole catalogue" },
+          { "label": "an opening parenthesis", "term": "(", "defect": "the term is used as an unescaped regex -> 500 Internal Server Error (HTML)" }
+        ]
+      }
+    },
+    "auth": {
+      "wrongPassword": "Wrong@12345",
+      "caseVariants": [
+        { "label": "an all upper-case", "transform": "upper" },
+        { "label": "a capitalised", "transform": "capitalize" }
+      ],
+      "specialUsernames": [
+        { "label": "a space", "template": "user name_{suffix}" },
+        { "label": "HTML markup", "template": "user<script>_{suffix}" }
+      ],
+      "longCredentials": [
+        { "label": "256-character", "length": 256 },
+        { "label": "1000-character", "length": 1000 }
+      ],
+      "longCredentialFiller": "x",
+      "bcryptTruncationLength": 72,
+      "invalidRegistrations": [
+        {
+          "label": "username shorter than 6 characters",
+          "shortUsernameLength": 5
+        },
+        {
+          "label": "password shorter than 6 characters",
+          "password": "12345"
+        }
+      ]
+    }
   }
 }

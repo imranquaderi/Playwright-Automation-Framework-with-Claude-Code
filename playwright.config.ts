@@ -36,17 +36,27 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      testIgnore: /tests[\\/]api[\\/]/,
       use: { ...devices['Desktop Chrome'] },
     },
 
     {
       name: 'firefox',
+      testIgnore: /tests[\\/]api[\\/]/,
       use: { ...devices['Desktop Firefox'] },
     },
 
     {
       name: 'webkit',
+      testIgnore: /tests[\\/]api[\\/]/,
       use: { ...devices['Desktop Safari'] },
+    },
+
+    /* Browser-independent backend API tests; run once. Paths in specs must be relative (no leading slash). */
+    {
+      name: 'api',
+      testDir: './tests/api',
+      use: { baseURL: process.env.API_BASE_URL ?? 'https://qkart-qa-backend.labs.crio.do/api/v1/' },
     },
 
     /* Test against mobile viewports. */
